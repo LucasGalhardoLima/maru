@@ -1,17 +1,807 @@
 ---
-
+export const prerender = true;
 ---
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maru — a friend who reminds you to take your meds &amp; vitamins</title>
+  <meta name="description" content="Maru is a gentle iPhone reminder for your medicines and vitamins. On-time local notifications, a happy little friend, and a streak that celebrates every dose. No login, no cloud — join the waitlist." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Maru — a friend who looks after you" />
+  <meta property="og:description" content="A gentle iPhone reminder for your meds & vitamins. No login, no cloud. Join the waitlist." />
+  <meta property="og:site_name" content="Maru" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maru — a friend who looks after you" />
+  <meta name="twitter:description" content="A gentle iPhone reminder for your meds & vitamins. No login, no cloud. Join the waitlist." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23ec7e54'/%3E%3Ccircle cx='37' cy='45' r='6' fill='%232a211c'/%3E%3Ccircle cx='63' cy='45' r='6' fill='%232a211c'/%3E%3Cpath d='M40 59 Q50 69 60 59' stroke='%232a211c' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="nav">
+  <div class="container nav-inner">
+    <div class="logo-lockup">
+      <div class="maru-icon-sm" aria-hidden="true"></div>
+      <span class="logo-text">maru</span>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="pt">PT</button>
+        <button class="lang-btn lang-btn--active" data-lang="en">EN</button>
+      </div>
+      <a href="#waitlist" class="btn-primary btn-sm" data-t="navCta">Join the list</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-deco hero-deco--1" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco--2" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco--3" aria-hidden="true"></div>
+
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="eyebrow-check" aria-hidden="true">✓</span>
+        <span data-t="heroEyebrow">Medicine &amp; vitamin reminder</span>
+      </div>
+      <h1 class="hero-h1" data-t="heroTitle">A friend who looks after you.</h1>
+      <p class="hero-benefit" data-t="heroBenefit">Never miss a dose again.</p>
+      <p class="hero-sub" data-t="heroSub">
+        Maru reminds you about your meds and vitamins right on time — and cheers you on when you take them. No login, no cloud, all on your iPhone.
+      </p>
+
+      <div id="waitlist" class="waitlist-box">
+        <form id="form-hero" class="waitlist-form" novalidate>
+          <input id="email-hero" type="email" class="email-input" autocomplete="email"
+            data-t-placeholder="formPlaceholder" placeholder="you@email.com" required />
+          <button type="submit" class="btn-primary btn-form" id="submit-hero" data-t="formButton">I want Maru</button>
+        </form>
+        <p class="form-hint" id="hint-hero" data-t="formHint">No spam. Just a ping when Maru lands.</p>
+        <div class="success-card" id="success-hero" hidden>
+          <div class="success-check" aria-hidden="true">✓</div>
+          <div>
+            <div class="success-title" data-t="successTitle">You're on the list!</div>
+            <div class="success-body" data-t="successBody">You're among the first — we'll ping you the moment Maru lands.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="float-dot float-dot--check float-dot--1"><span>✓</span></div>
+      <div class="float-dot float-dot--check float-dot--2"><span>✓</span></div>
+      <div class="float-dot float-dot--plain float-dot--3"></div>
+      <div class="maru-character maru-bob">
+        <div class="maru-body">
+          <div class="maru-cheek maru-cheek--l"></div>
+          <div class="maru-cheek maru-cheek--r"></div>
+          <div class="maru-eye maru-eye--l maru-blink"></div>
+          <div class="maru-eye maru-eye--r maru-blink"></div>
+          <div class="maru-smile"></div>
+          <div class="maru-badge maru-pop maru-celebrate">✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE FEELING ===== -->
+<section class="section section--white">
+  <div class="container" data-reveal>
+    <div class="section-header">
+      <div class="kicker"><span class="kicker-num">01</span>&nbsp;&nbsp;<span data-t="feelKicker">The feeling</span></div>
+      <h2 class="section-h2" data-t="feelTitle">Taking your meds shouldn't feel like a memory test.</h2>
+    </div>
+    <div class="worry-grid">
+      <div class="worry-card">
+        <div class="worry-quote" aria-hidden="true">"</div>
+        <p class="worry-text" data-t="worry1">Did I already take it this morning?</p>
+      </div>
+      <div class="worry-card">
+        <div class="worry-quote" aria-hidden="true">"</div>
+        <p class="worry-text" data-t="worry2">Was that today… or yesterday?</p>
+      </div>
+    </div>
+    <div class="feel-resolve">
+      <div class="maru-icon-md" aria-hidden="true"></div>
+      <p class="feel-resolve-text" data-t="feelResolve">Maru remembers, so you don't have to.</p>
+      <div class="principle-badge">
+        <span class="principle-dot" aria-hidden="true"></span>
+        <span data-t="principle">Maru reminds. Maru never nags.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE LOOP ===== -->
+<section class="section section--white section--border-top">
+  <div class="container" data-reveal>
+    <div class="section-header">
+      <div class="kicker"><span class="kicker-num">02</span>&nbsp;&nbsp;<span data-t="loopKicker">The loop</span></div>
+      <h2 class="section-h2" data-t="loopTitle">Four steps. That's it.</h2>
+    </div>
+    <div class="loop-grid">
+      <div class="loop-card loop-card--tilt-l">
+        <div class="step-num">1</div>
+        <div class="step-title" data-t="s1Title">Add it</div>
+        <p class="step-body" data-t="s1Body">Name, dose, times and days. In seconds, no tutorial.</p>
+      </div>
+      <div class="loop-card loop-card--tilt-r">
+        <div class="step-num">2</div>
+        <div class="step-title" data-t="s2Title">Maru reminds you</div>
+        <p class="step-body" data-t="s2Body">A local notification right on time — works offline, no server.</p>
+      </div>
+      <div class="loop-card loop-card--tilt-l">
+        <div class="step-num">3</div>
+        <div class="step-title" data-t="s3Title">Taken or Skipped</div>
+        <p class="step-body" data-t="s3Body">Mark it straight from the notification, without opening the app.</p>
+      </div>
+      <div class="loop-card loop-card--accent loop-card--tilt-r">
+        <div class="step-num step-num--accent">✓</div>
+        <div class="step-title step-title--accent" data-t="s4Title">Streak</div>
+        <p class="step-body step-body--accent" data-t="s4Body">Each dose becomes a ✓ and your streak grows. Maru celebrates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEET MARU (dark) ===== -->
+<section class="section section--dark">
+  <div class="meet-deco meet-deco--1" aria-hidden="true"></div>
+  <div class="meet-deco meet-deco--2" aria-hidden="true"></div>
+  <div class="container meet-grid" data-reveal>
+    <div class="meet-art" aria-hidden="true">
+      <div class="maru-character maru-character--lg maru-bob">
+        <div class="maru-body maru-body--lg">
+          <div class="maru-cheek maru-cheek--l maru-cheek--lg"></div>
+          <div class="maru-cheek maru-cheek--r maru-cheek--lg"></div>
+          <div class="maru-eye maru-eye--l maru-eye--lg maru-blink"></div>
+          <div class="maru-eye maru-eye--r maru-eye--lg maru-blink"></div>
+          <div class="maru-smile maru-smile--lg"></div>
+        </div>
+      </div>
+    </div>
+    <div class="meet-copy">
+      <div class="kicker kicker--dark"><span class="kicker-num kicker-num--dark">03</span>&nbsp;&nbsp;<span data-t="meetKicker">Hi, I'm Maru</span></div>
+      <h2 class="section-h2 section-h2--dark" data-t="meetTitle">The round little friend who won't let you forget.</h2>
+      <p class="meet-body" data-t="meetBody">I'm a friendly circle who lives in your pocket. My job? Remind you kindly and celebrate every dose you take.</p>
+      <ul class="meet-list">
+        <li class="meet-item"><span class="meet-check" aria-hidden="true">✓</span><span data-t="meet1">I nudge you on time — never before coffee.</span></li>
+        <li class="meet-item"><span class="meet-check" aria-hidden="true">✓</span><span data-t="meet2">I live only on your iPhone. Your data is yours.</span></li>
+        <li class="meet-item"><span class="meet-check" aria-hidden="true">✓</span><span data-t="meet3">Skipped one? No judgment. We'll try again tomorrow.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STREAK BAND ===== -->
+<section class="section section--cream">
+  <div class="container streak-center" data-reveal>
+    <div class="kicker"><span class="kicker-num">04</span>&nbsp;&nbsp;<span data-t="streakKicker">Streak</span></div>
+    <h2 class="section-h2 streak-h2" data-t="streakTitle">It's not about remembering. It's about caring for yourself.</h2>
+    <p class="streak-body" data-t="streakBody">Each dose becomes a ✓. The days become a streak. And Maru is happy right along with you.</p>
+    <div class="streak-dots" aria-hidden="true">
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--done">✓</div>
+      <div class="streak-dot streak-dot--next" id="streak-next"><span id="streak-ck">✓</span></div>
+      <div class="streak-chip" id="streak-chip" data-t="streakCount">12-day streak</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUES ===== -->
+<section class="section section--white">
+  <div class="container values-grid" data-stagger>
+    <div class="value-card">
+      <div class="value-icon" aria-hidden="true">丸</div>
+      <h3 class="value-title" data-t="v1Title">Local &amp; private</h3>
+      <p class="value-body" data-t="v1Body">No account, no backend. Your data never leaves your iPhone.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" aria-hidden="true">0</div>
+      <h3 class="value-title" data-t="v2Title">Zero onboarding</h3>
+      <p class="value-body" data-t="v2Body">Open it and go. No sign-up, no annoying tutorial.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" aria-hidden="true">✓</div>
+      <h3 class="value-title" data-t="v3Title">Reminders that work</h3>
+      <p class="value-body" data-t="v3Body">Rolling re-scheduling so it never misses — even past iOS's limit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section section--cta">
+  <div class="cta-deco cta-deco--1" aria-hidden="true"></div>
+  <div class="cta-deco cta-deco--2" aria-hidden="true"></div>
+  <div class="container cta-center" data-reveal>
+    <div class="cta-maru maru-bob" aria-hidden="true">
+      <div class="cta-maru-inner">✓</div>
+    </div>
+    <div class="kicker kicker--cta" data-t="closingEcho">Take it. Check it. Keep your streak.</div>
+    <h2 class="cta-h2" data-t="footerTitle">Get on the Maru list.</h2>
+    <p class="cta-sub" data-t="footerSub">Be one of the first to try it when the beta opens. Takes 5 seconds.</p>
+    <div class="waitlist-box waitlist-box--cta">
+      <form id="form-cta" class="waitlist-form" novalidate>
+        <input id="email-cta" type="email" class="email-input email-input--dark" autocomplete="email"
+          data-t-placeholder="formPlaceholder" placeholder="you@email.com" required />
+        <button type="submit" class="btn-dark btn-form" id="submit-cta" data-t="formButton">I want Maru</button>
+      </form>
+      <p class="form-hint form-hint--cta" id="hint-cta" data-t="formHint">No spam. Just a ping when Maru lands.</p>
+      <div class="success-card success-card--cta" id="success-cta" hidden>
+        <div class="success-check" aria-hidden="true">✓</div>
+        <div>
+          <div class="success-title" data-t="successTitle">You're on the list!</div>
+          <div class="success-body" data-t="successBody">You're among the first — we'll ping you the moment Maru lands.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logo-lockup">
+      <div class="maru-icon-sm maru-icon-sm--dark" aria-hidden="true"></div>
+      <span class="logo-text logo-text--light">maru</span>
+    </div>
+    <div class="footer-links">
+      <a href="#" class="footer-link" data-t="linkPrivacy">Privacy</a>
+      <a href="#" class="footer-link" data-t="linkTerms">Terms</a>
+      <span class="footer-copy" data-t="footerLegal">© 2026 maru · made with care</span>
+    </div>
+  </div>
+  <div class="footer-disclaimer-bar">
+    <div class="container footer-disclaimer">
+      <span class="disclaimer-icon" aria-hidden="true">⚕</span>
+      <p data-t="footerDisclaimer">
+        Maru is a reminder tool and not a substitute for professional medical advice, diagnosis, or treatment. Always talk to your doctor or pharmacist about your medication.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #fff;
+    color: #2a211c;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding-inline: 28px; }
+  .section { padding-block: 80px; }
+  .section--white { background: #fff; }
+  .section--white.section--border-top { border-top: 1px solid #f3e6da; }
+  .section--cream { background: #fbf3ec; border-bottom: 1px solid #f3e6da; }
+  .section--dark { background: #2a211c; position: relative; overflow: hidden; }
+  .section--cta { background: #ec7e54; position: relative; overflow: hidden; }
+
+  .section-h2 { margin: 14px 0 0; font: 800 42px/1.06 'Baloo 2', sans-serif; letter-spacing: -.01em; color: #2a211c; text-wrap: balance; }
+  .section-h2--dark { color: #fff; }
+  .kicker { font: 700 12px/1 'Hanken Grotesk', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #ec7e54; }
+  .kicker-num { color: #e0b9a4; }
+  .kicker--dark { color: #f2925f; }
+  .kicker-num--dark { color: #9a7059; }
+  .kicker--cta { color: #ffd9c6; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes pop { 0% { transform: scale(0) rotate(-12deg); } 60% { transform: scale(1.14) rotate(3deg); } 100% { transform: scale(1) rotate(0); } }
+  @keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(5px,-9px); } }
+  @keyframes blink { 0%,92%,100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+  @keyframes celebrate { 0%,80%,100% { transform: scale(1) rotate(0); } 87% { transform: scale(1.16) rotate(6deg); } 93% { transform: scale(.95) rotate(-4deg); } }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  .maru-bob { animation: bob 3.6s ease-in-out infinite; }
+  .maru-blink { animation: blink 6s ease-in-out infinite; }
+  .maru-pop { animation: pop .6s ease-out both; }
+  .maru-celebrate { animation: pop .6s ease-out, celebrate 6s 2s ease-in-out infinite; }
+
+  [data-reveal] { will-change: opacity, transform; }
+  body.has-reveal [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1); }
+  body.has-reveal [data-reveal].is-in { opacity: 1; transform: none; }
+  body.has-reveal [data-stagger] > * { opacity: 0; }
+  body.has-reveal [data-stagger].is-in > * { animation: riseIn .6s cubic-bezier(.16,.84,.44,1) both; animation-delay: var(--d, 0s); }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #2a211c; outline-offset: 3px; border-radius: 8px; }
+
+  /* Maru character */
+  .maru-character { position: relative; width: 240px; height: 240px; }
+  .maru-body { position: absolute; inset: 0; border-radius: 50%; background: #ec7e54; box-shadow: 0 28px 56px -14px rgba(236,126,84,.6), inset 0 -16px 34px rgba(200,90,51,.28); }
+  .maru-cheek { position: absolute; border-radius: 50%; background: #f59e7e; opacity: .75; width: 34px; height: 20px; top: 138px; }
+  .maru-cheek--l { left: 42px; }
+  .maru-cheek--r { right: 42px; }
+  .maru-eye { position: absolute; border-radius: 50%; background: #2a211c; width: 15px; height: 21px; top: 104px; }
+  .maru-eye--l { left: 84px; }
+  .maru-eye--r { right: 84px; }
+  .maru-smile { position: absolute; left: 50%; top: 118px; transform: translateX(-50%); width: 56px; height: 56px; border-radius: 50%; border: 6px solid transparent; border-bottom-color: #2a211c; }
+  .maru-badge { position: absolute; right: -4px; top: -4px; width: 62px; height: 62px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(42,33,28,.2); color: #ec7e54; font: 800 30px/1 'Baloo 2', sans-serif; }
+
+  .maru-character--lg { width: 260px; height: 260px; }
+  .maru-body--lg { box-shadow: 0 30px 60px -12px rgba(236,126,84,.5), inset 0 -16px 36px rgba(200,90,51,.3); }
+  .maru-cheek--lg { width: 36px; height: 22px; top: 150px; }
+  .maru-cheek--l.maru-cheek--lg { left: 48px; }
+  .maru-cheek--r.maru-cheek--lg { right: 48px; }
+  .maru-eye--lg { width: 16px; height: 23px; top: 112px; }
+  .maru-eye--l.maru-eye--lg { left: 92px; }
+  .maru-eye--r.maru-eye--lg { right: 92px; }
+  .maru-smile--lg { top: 128px; width: 60px; height: 60px; border-width: 6px; }
+
+  /* Small icon in nav/footer — CSS-drawn face */
+  .maru-icon-sm {
+    width: 34px; height: 34px; border-radius: 9px; background: #ec7e54;
+    box-shadow: 0 4px 10px rgba(236,126,84,.35);
+    position: relative; flex-shrink: 0;
+  }
+  .maru-icon-sm--dark { box-shadow: none; }
+  .maru-icon-sm::before {
+    content: '';
+    position: absolute; left: 34%; top: 38%;
+    width: 7px; height: 11px; border-radius: 50%; background: #2a211c;
+    box-shadow: 11px 0 0 #2a211c;
+  }
+  .maru-icon-sm::after {
+    content: '';
+    position: absolute; left: 50%; top: 57%; transform: translateX(-50%);
+    width: 11px; height: 11px; border-radius: 50%;
+    border: 2.5px solid transparent; border-bottom-color: #2a211c;
+  }
+
+  /* Medium icon — used in feel-resolve */
+  .maru-icon-md {
+    width: 64px; height: 64px; border-radius: 20px; background: #ec7e54;
+    box-shadow: 0 12px 24px -8px rgba(236,126,84,.5);
+    position: relative; margin-bottom: 20px;
+  }
+  .maru-icon-md::before {
+    content: '';
+    position: absolute; left: 33%; top: 37%;
+    width: 10px; height: 16px; border-radius: 50%; background: #2a211c;
+    box-shadow: 14px 0 0 #2a211c;
+  }
+  .maru-icon-md::after {
+    content: '';
+    position: absolute; left: 50%; top: 57%; transform: translateX(-50%);
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 3px solid transparent; border-bottom-color: #2a211c;
+  }
+
+  /* NAV */
+  #nav { position: sticky; top: 0; z-index: 30; background: rgba(251,243,236,.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #f0e3d8; }
+  .nav-inner { display: flex; align-items: center; gap: 16px; padding-block: 13px; }
+  .logo-lockup { display: flex; align-items: center; gap: 11px; }
+  .logo-text { font: 800 24px/1 'Baloo 2', sans-serif; letter-spacing: -.01em; color: #2a211c; }
+  .logo-text--light { color: #fff; }
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+  .lang-switcher { display: flex; gap: 3px; background: #fff; border: 1px solid #f0d8c8; border-radius: 999px; padding: 3px; }
+  .lang-btn { padding: 6px 14px; border-radius: 999px; border: none; cursor: pointer; font: 600 13px/1 'Hanken Grotesk', sans-serif; background: transparent; color: #9a8678; transition: background .15s, color .15s; }
+  .lang-btn--active { background: #ec7e54 !important; color: #fff !important; font-weight: 700; }
+  .lang-btn:hover:not(.lang-btn--active) { background: #f3e6da; }
+
+  /* Buttons */
+  .btn-primary { background: #ec7e54; color: #fff; text-decoration: none; border: none; cursor: pointer; border-radius: 999px; padding: 10px 18px; font: 700 14px/1 'Hanken Grotesk', sans-serif; box-shadow: 0 6px 14px rgba(236,126,84,.32); transition: transform .18s ease, box-shadow .18s ease; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(236,126,84,.42); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-form { padding: 15px 26px; font-size: 16px; border-radius: 14px; box-shadow: 0 10px 22px rgba(236,126,84,.34); white-space: nowrap; }
+  .btn-form:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(236,126,84,.45); }
+  .btn-dark { background: #2a211c; color: #fff; border: none; cursor: pointer; border-radius: 14px; padding: 16px 26px; font: 700 16px/1 'Hanken Grotesk', sans-serif; box-shadow: 0 12px 24px rgba(42,33,28,.24); transition: transform .18s ease, box-shadow .18s ease; white-space: nowrap; }
+  .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(42,33,28,.34); }
+
+  /* HERO */
+  .hero { background: #fbf3ec; border-bottom: 1px solid #f3e6da; position: relative; }
+  .hero-deco { position: absolute; border-radius: 50%; pointer-events: none; }
+  .hero-deco--1 { left: 4%; top: 18%; width: 90px; height: 90px; background: #fbd9c7; opacity: .6; animation: drift 7s ease-in-out infinite; }
+  .hero-deco--2 { right: 46%; top: 8%; width: 38px; height: 38px; border: 3px dashed #f0c3aa; animation: floaty 5s ease-in-out infinite; }
+  .hero-deco--3 { left: 30%; bottom: 10%; width: 24px; height: 24px; background: #f2925f; opacity: .5; animation: floaty 6s ease-in-out .8s infinite; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: center; padding-block: 60px 72px; position: relative; }
+  .hero-h1 { margin: 20px 0 0; font: 800 62px/1.0 'Baloo 2', sans-serif; letter-spacing: -.02em; color: #2a211c; text-wrap: balance; }
+  .hero-benefit { margin: 14px 0 0; font: 700 19px/1.35 'Hanken Grotesk', sans-serif; color: #c85a33; }
+  .hero-sub { margin: 13px 0 0; max-width: 470px; font: 400 18px/1.55 'Hanken Grotesk', sans-serif; color: #5d544c; text-wrap: pretty; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #f3d9c8; border-radius: 999px; padding: 6px 14px 6px 8px; width: fit-content; }
+  .eyebrow-check { width: 18px; height: 18px; border-radius: 50%; background: #ec7e54; display: flex; align-items: center; justify-content: center; color: #fff; font: 700 9px/1 'Baloo 2', sans-serif; }
+  .eyebrow span:last-child { font: 600 12px/1 'Hanken Grotesk', sans-serif; letter-spacing: .04em; color: #c85a33; }
+
+  .hero-art { display: flex; justify-content: center; position: relative; }
+  .float-dot { position: absolute; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(42,33,28,.12); display: flex; align-items: center; justify-content: center; }
+  .float-dot--check span { color: #ec7e54; font: 800 20px/1 'Baloo 2', sans-serif; }
+  .float-dot--1 { left: -6px; top: 14px; width: 44px; height: 44px; animation: floaty 4.5s ease-in-out infinite; }
+  .float-dot--2 { right: -2px; top: 80px; width: 36px; height: 36px; animation: floaty 5.5s ease-in-out .6s infinite; }
+  .float-dot--check.float-dot--2 span { font-size: 16px; }
+  .float-dot--plain { width: 30px; height: 30px; background: #fbd9c7; box-shadow: none; left: 8px; bottom: 18px; animation: floaty 6s ease-in-out 1.2s infinite; }
+
+  /* Waitlist form */
+  .waitlist-box { margin-top: 30px; max-width: 460px; }
+  .waitlist-box--cta { margin: 28px auto 0; }
+  .waitlist-form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .email-input { flex: 1; min-width: 200px; background: #fff; border: 1.5px solid #eccdb8; border-radius: 14px; padding: 15px 18px; font: 500 16px/1 'Hanken Grotesk', sans-serif; color: #2a211c; outline: none; transition: border-color .15s, box-shadow .15s; }
+  .email-input:focus { border-color: #ec7e54; box-shadow: 0 0 0 4px rgba(236,126,84,.14); }
+  .email-input--dark { border-color: transparent; }
+  .email-input--dark:focus { border-color: #ec7e54; }
+  .email-input.is-error { border-color: #c85a33; box-shadow: 0 0 0 3px rgba(200,90,51,.12); }
+  .form-hint { margin-top: 11px; font: 500 13px/1.4 'Hanken Grotesk', sans-serif; color: #9a8678; }
+  .form-hint.is-error { color: #c85a33; }
+  .form-hint--cta { color: #ffe6d9; }
+  .form-hint--cta.is-error { color: #fff; }
+  .success-card { background: #fff; border: 1.5px solid #f3dccd; border-radius: 18px; padding: 20px 22px; box-shadow: 0 14px 30px rgba(236,126,84,.16); display: flex; align-items: center; gap: 12px; }
+  .success-card--cta { box-shadow: 0 16px 34px rgba(42,33,28,.22); border: none; }
+  .success-check { width: 40px; height: 40px; border-radius: 50%; background: #ec7e54; display: flex; align-items: center; justify-content: center; color: #fff; font: 800 20px/1 'Baloo 2', sans-serif; flex-shrink: 0; animation: pop .5s ease-out both; }
+  .success-title { font: 700 18px/1.1 'Baloo 2', sans-serif; color: #2a211c; }
+  .success-body { font: 500 14px/1.4 'Hanken Grotesk', sans-serif; color: #7a6f66; }
+
+  .section-header { text-align: center; max-width: 620px; margin: 0 auto 44px; }
+
+  /* Worry */
+  .worry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto; }
+  .worry-card { background: #fbf3ec; border-radius: 20px; padding: 28px 28px 30px; }
+  .worry-quote { font: 800 44px/.4 'Baloo 2', sans-serif; color: #e7c3b2; }
+  .worry-text { margin: 12px 0 0; font: 500 22px/1.35 'Hanken Grotesk', sans-serif; font-style: italic; color: #5d544c; }
+  .feel-resolve { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 42px; }
+  .feel-resolve-text { font: 800 32px/1.15 'Baloo 2', sans-serif; color: #2a211c; max-width: 520px; text-wrap: balance; }
+  .principle-badge { margin-top: 16px; display: inline-flex; align-items: center; gap: 10px; background: #fbf3ec; border: 1px solid #f3dccd; border-radius: 999px; padding: 11px 22px; }
+  .principle-dot { width: 8px; height: 8px; border-radius: 50%; background: #ec7e54; flex-shrink: 0; }
+  .principle-badge span:last-child { font: 700 15px/1 'Hanken Grotesk', sans-serif; color: #c85a33; }
+
+  /* Loop */
+  .loop-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .loop-card { background: #fbf3ec; border-radius: 20px; padding: 24px 22px; transition: transform .2s ease; }
+  .loop-card--accent { background: #ec7e54; }
+  .loop-card--tilt-l:hover { transform: translateY(-6px) rotate(-1deg); }
+  .loop-card--tilt-r:hover { transform: translateY(-6px) rotate(1deg); }
+  .step-num { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 14px; background: #fff; border: 1px solid #f3dccd; font: 800 18px/1 'Baloo 2', sans-serif; color: #c85a33; }
+  .step-num--accent { background: rgba(255,255,255,.22); border: none; color: #fff; font-weight: 700; }
+  .step-title { margin-top: 18px; font: 700 18px/1.2 'Baloo 2', sans-serif; color: #2a211c; }
+  .step-title--accent { color: #fff; }
+  .step-body { margin: 8px 0 0; font: 400 14px/1.5 'Hanken Grotesk', sans-serif; color: #7a6f66; }
+  .step-body--accent { color: #ffe6d9; }
+
+  /* Meet */
+  .meet-deco { position: absolute; border-radius: 50%; pointer-events: none; }
+  .meet-deco--1 { right: -40px; top: -40px; width: 200px; height: 200px; background: rgba(236,126,84,.14); }
+  .meet-deco--2 { left: -30px; bottom: -50px; width: 160px; height: 160px; border: 2px dashed rgba(236,126,84,.3); }
+  .meet-grid { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; position: relative; }
+  .meet-art { display: flex; justify-content: center; }
+  .meet-body { margin: 18px 0 0; max-width: 480px; font: 400 17px/1.55 'Hanken Grotesk', sans-serif; color: #d8c8bd; }
+  .meet-list { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; max-width: 460px; }
+  .meet-item { display: flex; align-items: center; gap: 13px; }
+  .meet-check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #ec7e54; display: flex; align-items: center; justify-content: center; color: #fff; font: 800 13px/1 'Baloo 2', sans-serif; }
+  .meet-item span:last-child { font: 500 15px/1.4 'Hanken Grotesk', sans-serif; color: #f4ebe3; }
+
+  /* Streak */
+  .streak-center { text-align: center; }
+  .streak-h2 { margin-inline: auto; max-width: 660px; }
+  .streak-body { margin: 18px auto 0; max-width: 520px; font: 400 18px/1.55 'Hanken Grotesk', sans-serif; color: #5d544c; }
+  .streak-dots { display: flex; align-items: center; justify-content: center; gap: 11px; margin-top: 34px; flex-wrap: wrap; }
+  .streak-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font: 700 19px/1 'Baloo 2', sans-serif; }
+  .streak-dot--done { background: #ec7e54; color: #fff; }
+  .streak-dot--next { border: 2px solid #ec7e54; background: #fbd9c7; transition: background .35s ease, border-color .35s ease; }
+  .streak-dot--next.is-done { background: #ec7e54; border-color: #ec7e54; }
+  #streak-ck { color: #fff; font: 700 19px/1 'Baloo 2', sans-serif; opacity: 0; transform: scale(.4); transition: opacity .3s ease, transform .35s cubic-bezier(.2,1.4,.5,1); display: block; }
+  .streak-dot--next.is-done #streak-ck { opacity: 1; transform: scale(1); }
+  .streak-chip { margin-left: 6px; background: #fff; border: 1px solid #f3dccd; border-radius: 999px; padding: 10px 18px; font: 800 16px/1 'Baloo 2', sans-serif; color: #c85a33; transition: transform .3s cubic-bezier(.2,1.4,.5,1); }
+  .streak-chip.is-pop { transform: scale(1.07); }
+
+  /* Values */
+  .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .value-icon { width: 44px; height: 44px; border-radius: 13px; background: #fbd9c7; display: flex; align-items: center; justify-content: center; font: 700 20px/1 'Baloo 2', sans-serif; color: #c85a33; }
+  .value-title { margin: 16px 0 0; font: 700 20px/1.2 'Baloo 2', sans-serif; color: #2a211c; }
+  .value-body { margin: 8px 0 0; font: 400 15px/1.55 'Hanken Grotesk', sans-serif; color: #7a6f66; }
+
+  /* CTA */
+  .cta-deco { position: absolute; border-radius: 50%; pointer-events: none; }
+  .cta-deco--1 { left: 8%; top: 20%; width: 60px; height: 60px; background: rgba(255,255,255,.16); animation: floaty 6s ease-in-out infinite; }
+  .cta-deco--2 { right: 10%; bottom: 16%; width: 40px; height: 40px; border: 3px dashed rgba(255,255,255,.4); animation: floaty 5s ease-in-out .5s infinite; }
+  .cta-center { text-align: center; position: relative; }
+  .cta-maru { width: 72px; height: 72px; border-radius: 22px; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+  .cta-maru-inner { width: 38px; height: 38px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: #ec7e54; font: 800 22px/1 'Baloo 2', sans-serif; }
+  .cta-h2 { margin: 12px auto 0; max-width: 540px; font: 800 46px/1.06 'Baloo 2', sans-serif; letter-spacing: -.01em; color: #fff; text-wrap: balance; }
+  .cta-sub { margin: 14px auto 0; max-width: 440px; font: 400 17px/1.5 'Hanken Grotesk', sans-serif; color: #ffe6d9; }
+
+  /* Footer */
+  .footer { background: #2a211c; }
+  .footer-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 28px; }
+  .footer-links { margin-left: auto; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-link { font: 600 13px/1 'Hanken Grotesk', sans-serif; color: #d8c8bd; text-decoration: none; }
+  .footer-link:hover { color: #fff; }
+  .footer-copy { font: 400 13px/1 'Hanken Grotesk', sans-serif; color: #9a8678; }
+  .footer-disclaimer-bar { border-top: 1px solid rgba(255,255,255,.08); }
+  .footer-disclaimer { display: flex; align-items: flex-start; gap: 10px; padding-block: 16px; }
+  .disclaimer-icon { flex-shrink: 0; font: 700 13px/1.4 'Baloo 2', sans-serif; color: #9a8678; }
+  .footer-disclaimer p { margin: 0; max-width: 900px; font: 400 12px/1.55 'Hanken Grotesk', sans-serif; color: #9a8678; }
+
+  /* Responsive */
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { display: none; }
+    .meet-grid { grid-template-columns: 1fr; }
+    .meet-art { display: none; }
+  }
+  @media (max-width: 720px) {
+    .loop-grid { grid-template-columns: 1fr 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .worry-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .loop-grid { grid-template-columns: 1fr; }
+    .hero-h1 { font-size: 42px; line-height: 1.05; }
+    .cta-h2 { font-size: 36px; }
+  }
+</style>
+
+<script>
+  const STRINGS = {
+    pt: {
+      navCta: 'Entrar na lista',
+      heroEyebrow: 'Lembrete de remédios & vitaminas',
+      heroTitle: 'Um amigo que cuida de você.',
+      heroBenefit: 'Nunca mais esqueça uma dose.',
+      heroSub: 'O Maru lembra os seus remédios e vitaminas na hora certa — e fica feliz quando você toma. Sem login, sem nuvem, tudo no seu iPhone.',
+      formPlaceholder: 'seu@email.com',
+      formButton: 'Quero o Maru',
+      formSubmitting: 'Entrando…',
+      formHint: 'Sem spam. Só um aviso quando o Maru chegar.',
+      errInvalid: 'Ops, esse e-mail parece estranho. Confere pra mim?',
+      errNetwork: 'Não consegui enviar agora — tenta de novo num segundo.',
+      successTitle: 'Você está na lista!',
+      successBody: 'Você é um dos primeiros — a gente te avisa assim que o Maru chegar.',
+      feelKicker: 'A sensação',
+      feelTitle: 'Tomar seu remédio não devia ser teste de memória.',
+      worry1: 'Será que já tomei hoje de manhã?',
+      worry2: 'Isso foi hoje… ou ontem?',
+      feelResolve: 'O Maru lembra, pra você não precisar.',
+      principle: 'O Maru lembra. O Maru nunca cobra.',
+      loopKicker: 'O loop', loopTitle: 'Quatro passos. É isso.',
+      s1Title: 'Cadastre', s1Body: 'Nome, dose, horários e dias. Em segundos, sem tutorial.',
+      s2Title: 'O Maru avisa', s2Body: 'Notificação local na hora certa — funciona offline, sem servidor.',
+      s3Title: 'Tomei ou Pulei', s3Body: 'Marque direto da notificação, sem nem abrir o app.',
+      s4Title: 'Streak', s4Body: 'Cada dose vira um ✓ e sua sequência cresce. O Maru comemora.',
+      meetKicker: 'Oi, eu sou o Maru',
+      meetTitle: 'O amigo redondo que não deixa você esquecer.',
+      meetBody: 'Eu sou um círculo simpático que mora no seu bolso. Meu trabalho? Te lembrar com carinho e comemorar cada dose tomada.',
+      meet1: 'Cutuco na hora certa — nunca antes do café.',
+      meet2: 'Moro só no seu iPhone. Seus dados são seus.',
+      meet3: 'Você pulou? Sem julgamento. Amanhã a gente tenta de novo.',
+      streakKicker: 'Streak',
+      streakTitle: 'Não é sobre lembrar. É sobre se cuidar.',
+      streakBody: 'Cada dose vira um ✓. Os dias viram uma sequência. E o Maru fica feliz com você.',
+      streakCount: '12 dias seguidos',
+      v1Title: 'Local e privado', v1Body: 'Sem conta, sem backend. Seus dados nunca saem do iPhone.',
+      v2Title: 'Zero onboarding', v2Body: 'Abriu, já usa. Nada de cadastro ou tutorial chato.',
+      v3Title: 'Lembretes que funcionam', v3Body: 'Re-agendamento contínuo pra nunca furar — mesmo com o limite do iOS.',
+      closingEcho: 'Tome. Marque. Mantenha o streak.',
+      footerTitle: 'Entra na lista do Maru.',
+      footerSub: 'Seja um dos primeiros a testar quando o beta abrir. Leva 5 segundos.',
+      linkPrivacy: 'Privacidade', linkTerms: 'Termos',
+      footerLegal: '© 2026 maru · feito com cuidado',
+      footerDisclaimer: 'O Maru é uma ferramenta de lembrete e não substitui orientação, diagnóstico ou tratamento médico profissional. Fale sempre com seu médico ou farmacêutico sobre a sua medicação.',
+    },
+    en: {
+      navCta: 'Join the list',
+      heroEyebrow: 'Medicine & vitamin reminder',
+      heroTitle: 'A friend who looks after you.',
+      heroBenefit: 'Never miss a dose again.',
+      heroSub: 'Maru reminds you about your meds and vitamins right on time — and cheers you on when you take them. No login, no cloud, all on your iPhone.',
+      formPlaceholder: 'you@email.com',
+      formButton: 'I want Maru',
+      formSubmitting: 'Joining…',
+      formHint: 'No spam. Just a ping when Maru lands.',
+      errInvalid: 'Hmm, that email looks off. Mind checking it?',
+      errNetwork: "Couldn't send just now — give it another try in a sec.",
+      successTitle: "You're on the list!",
+      successBody: "You're among the first — we'll ping you the moment Maru lands.",
+      feelKicker: 'The feeling',
+      feelTitle: "Taking your meds shouldn't feel like a memory test.",
+      worry1: 'Did I already take it this morning?',
+      worry2: 'Was that today… or yesterday?',
+      feelResolve: "Maru remembers, so you don't have to.",
+      principle: 'Maru reminds. Maru never nags.',
+      loopKicker: 'The loop', loopTitle: "Four steps. That's it.",
+      s1Title: 'Add it', s1Body: 'Name, dose, times and days. In seconds, no tutorial.',
+      s2Title: 'Maru reminds you', s2Body: 'A local notification right on time — works offline, no server.',
+      s3Title: 'Taken or Skipped', s3Body: 'Mark it straight from the notification, without opening the app.',
+      s4Title: 'Streak', s4Body: 'Each dose becomes a ✓ and your streak grows. Maru celebrates.',
+      meetKicker: "Hi, I'm Maru",
+      meetTitle: "The round little friend who won't let you forget.",
+      meetBody: "I'm a friendly circle who lives in your pocket. My job? Remind you kindly and celebrate every dose you take.",
+      meet1: 'I nudge you on time — never before coffee.',
+      meet2: 'I live only on your iPhone. Your data is yours.',
+      meet3: "Skipped one? No judgment. We'll try again tomorrow.",
+      streakKicker: 'Streak',
+      streakTitle: "It's not about remembering. It's about caring for yourself.",
+      streakBody: 'Each dose becomes a ✓. The days become a streak. And Maru is happy right along with you.',
+      streakCount: '12-day streak',
+      v1Title: 'Local & private', v1Body: 'No account, no backend. Your data never leaves your iPhone.',
+      v2Title: 'Zero onboarding', v2Body: 'Open it and go. No sign-up, no annoying tutorial.',
+      v3Title: 'Reminders that work', v3Body: "Rolling re-scheduling so it never misses — even past iOS's limit.",
+      closingEcho: 'Take it. Check it. Keep your streak.',
+      footerTitle: 'Get on the Maru list.',
+      footerSub: 'Be one of the first to try it when the beta opens. Takes 5 seconds.',
+      linkPrivacy: 'Privacy', linkTerms: 'Terms',
+      footerLegal: '© 2026 maru · made with care',
+      footerDisclaimer: 'Maru is a reminder tool and not a substitute for professional medical advice, diagnosis, or treatment. Always talk to your doctor or pharmacist about your medication.',
+    },
+  };
+
+  let lang = 'en';
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function getLang() {
+    try {
+      const saved = localStorage.getItem('maru_lang');
+      if (saved === 'pt' || saved === 'en') return saved;
+      return (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+    } catch { return 'en'; }
+  }
+
+  function applyTranslations() {
+    const t = STRINGS[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-t]').forEach((el) => {
+      const key = el.dataset.t;
+      if (key && key in t) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-t-placeholder]').forEach((el) => {
+      const key = el.dataset.tPlaceholder;
+      if (key && key in t) el.placeholder = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.classList.toggle('lang-btn--active', btn.dataset.lang === lang);
+    });
+    // Sync button labels
+    ['hero', 'cta'].forEach((s) => {
+      const btn = document.getElementById('submit-' + s);
+      if (btn && !btn.disabled) btn.textContent = t.formButton;
+    });
+  }
+
+  function setLang(l) {
+    lang = l;
+    try { localStorage.setItem('maru_lang', l); } catch { }
+    applyTranslations();
+  }
+
+  function setHint(suffix, text, isError) {
+    const el = document.getElementById('hint-' + suffix);
+    if (!el) return;
+    el.textContent = text;
+    el.classList.toggle('is-error', isError);
+  }
+
+  function setFormBusy(suffix, busy) {
+    const btn = document.getElementById('submit-' + suffix);
+    const inp = document.getElementById('email-' + suffix);
+    if (btn) { btn.disabled = busy; btn.textContent = busy ? STRINGS[lang].formSubmitting : STRINGS[lang].formButton; }
+    if (inp) inp.disabled = busy;
+  }
+
+  function markJoined() {
+    ['hero', 'cta'].forEach((s) => {
+      const box = document.getElementById('form-' + s)?.closest('.waitlist-box');
+      if (!box) return;
+      box.querySelector('.waitlist-form')?.setAttribute('hidden', '');
+      box.querySelector('.form-hint')?.setAttribute('hidden', '');
+      document.getElementById('success-' + s)?.removeAttribute('hidden');
+    });
+  }
+
+  async function handleSubmit(e, suffix) {
+    e.preventDefault();
+    const inp = document.getElementById('email-' + suffix);
+    const email = (inp?.value ?? '').trim();
+    const t = STRINGS[lang];
+
+    if (!EMAIL_RE.test(email)) {
+      inp?.classList.add('is-error');
+      setHint(suffix, t.errInvalid, true);
+      inp?.focus();
+      return;
+    }
+
+    // Duplicate check
+    try {
+      const prev = JSON.parse(localStorage.getItem('maru_emails') ?? '[]');
+      if (prev.includes(email.toLowerCase())) { markJoined(); return; }
+    } catch { }
+
+    setFormBusy(suffix, true);
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, lang }),
+      });
+      if (!res.ok) throw new Error('bad-status');
+
+      try {
+        const prev = JSON.parse(localStorage.getItem('maru_emails') ?? '[]');
+        prev.push(email.toLowerCase());
+        localStorage.setItem('maru_emails', JSON.stringify(prev));
+        localStorage.setItem('maru_joined', '1');
+      } catch { }
+
+      markJoined();
+    } catch {
+      setFormBusy(suffix, false);
+      setHint(suffix, t.errNetwork, true);
+    }
+  }
+
+  function setupReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    requestAnimationFrame(() => {
+      const els = document.querySelectorAll('[data-reveal],[data-stagger]');
+      if (!els.length) return;
+      document.body.classList.add('has-reveal');
+      const stagger = (el) => {
+        if (el.hasAttribute('data-stagger'))
+          Array.from(el.children).forEach((c, i) => c.style.setProperty('--d', i * 0.09 + 's'));
+      };
+      const reveal = (el) => { stagger(el); el.classList.add('is-in'); };
+      const safety = setTimeout(() => els.forEach(reveal), 2500);
+      try {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((en) => { if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach((el) => io.observe(el));
+        clearTimeout(safety);
+      } catch { clearTimeout(safety); els.forEach(reveal); }
+    });
+  }
+
+  function startStreakDemo() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const tick = () => {
+      const dot = document.getElementById('streak-next');
+      const chip = document.getElementById('streak-chip');
+      dot?.classList.add('is-done');
+      if (chip) { chip.classList.add('is-pop'); setTimeout(() => chip.classList.remove('is-pop'), 340); }
+      setTimeout(() => dot?.classList.remove('is-done'), 1600);
+    };
+    setInterval(tick, 4800);
+    setTimeout(tick, 1400);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    lang = getLang();
+    applyTranslations();
+
+    if (localStorage.getItem('maru_joined') === '1') markJoined();
+
+    document.querySelectorAll('.lang-btn').forEach((btn) =>
+      btn.addEventListener('click', () => setLang(btn.dataset.lang))
+    );
+
+    ['hero', 'cta'].forEach((s) => {
+      document.getElementById('form-' + s)?.addEventListener('submit', (e) => handleSubmit(e, s));
+      document.getElementById('email-' + s)?.addEventListener('input', () => {
+        document.getElementById('email-' + s)?.classList.remove('is-error');
+        setHint(s, STRINGS[lang].formHint, false);
+      });
+    });
+
+    setupReveal();
+    startStreakDemo();
+  });
+</script>
