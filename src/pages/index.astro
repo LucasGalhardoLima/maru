@@ -15,7 +15,7 @@ export const prerender = true;
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Maru — a friend who looks after you" />
   <meta name="twitter:description" content="A gentle iPhone reminder for your meds & vitamins. No login, no cloud. Join the waitlist." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23ec7e54'/%3E%3Ccircle cx='37' cy='45' r='6' fill='%232a211c'/%3E%3Ccircle cx='63' cy='45' r='6' fill='%232a211c'/%3E%3Cpath d='M40 59 Q50 69 60 59' stroke='%232a211c' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ec7e54'/%3E%3Ccircle cx='37' cy='45' r='6' fill='%232a211c'/%3E%3Ccircle cx='63' cy='45' r='6' fill='%232a211c'/%3E%3Cpath d='M40 59 Q50 69 60 59' stroke='%232a211c' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -352,7 +352,7 @@ export const prerender = true;
 
   /* Small icon in nav/footer — CSS-drawn face */
   .maru-icon-sm {
-    width: 34px; height: 34px; border-radius: 9px; background: #ec7e54;
+    width: 34px; height: 34px; border-radius: 50%; background: #ec7e54;
     box-shadow: 0 4px 10px rgba(236,126,84,.35);
     position: relative; flex-shrink: 0;
   }
@@ -786,8 +786,6 @@ export const prerender = true;
   document.addEventListener('DOMContentLoaded', () => {
     lang = getLang();
     applyTranslations();
-
-    if (localStorage.getItem('maru_joined') === '1') markJoined();
 
     document.querySelectorAll('.lang-btn').forEach((btn) =>
       btn.addEventListener('click', () => setLang(btn.dataset.lang))
