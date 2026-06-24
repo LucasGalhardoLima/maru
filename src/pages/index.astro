@@ -15,7 +15,7 @@ export const prerender = true;
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Maru — a friend who looks after you" />
   <meta name="twitter:description" content="A gentle iPhone reminder for your meds & vitamins. No login, no cloud. Join the waitlist." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ec7e54'/%3E%3Ccircle cx='37' cy='45' r='6' fill='%232a211c'/%3E%3Ccircle cx='63' cy='45' r='6' fill='%232a211c'/%3E%3Cpath d='M40 59 Q50 69 60 59' stroke='%232a211c' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23ec7e54'/%3E%3Cellipse cx='37' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='63' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='29' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cellipse cx='71' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cpath d='M40 65 Q50 73 60 65' stroke='%232a211c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -353,41 +353,21 @@ export const prerender = true;
 
   /* Small icon in nav/footer — CSS-drawn face */
   .maru-icon-sm {
-    width: 34px; height: 34px; border-radius: 50%; background: #ec7e54;
+    width: 34px; height: 34px; border-radius: 8px; background: #ec7e54;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='37' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='63' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='29' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cellipse cx='71' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cpath d='M40 65 Q50 73 60 65' stroke='%232a211c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
     box-shadow: 0 4px 10px rgba(236,126,84,.35);
-    position: relative; flex-shrink: 0;
+    flex-shrink: 0;
   }
   .maru-icon-sm--dark { box-shadow: none; }
-  .maru-icon-sm::before {
-    content: '';
-    position: absolute; left: 32%; top: 40%;
-    width: 3px; height: 5px; border-radius: 50%; background: #2a211c;
-    box-shadow: 9px 0 0 #2a211c;
-  }
-  .maru-icon-sm::after {
-    content: '';
-    position: absolute; left: 50%; top: 57%; transform: translateX(-50%);
-    width: 8px; height: 8px; border-radius: 50%;
-    border: 2px solid transparent; border-bottom-color: #2a211c;
-  }
 
   /* Medium icon — used in feel-resolve */
   .maru-icon-md {
-    width: 64px; height: 64px; border-radius: 20px; background: #ec7e54;
+    width: 64px; height: 64px; border-radius: 14px; background: #ec7e54;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='37' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='63' cy='40' rx='5' ry='7' fill='%232a211c'/%3E%3Cellipse cx='29' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cellipse cx='71' cy='56' rx='10' ry='6' fill='%23f5907a' opacity='.72'/%3E%3Cpath d='M40 65 Q50 73 60 65' stroke='%232a211c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
     box-shadow: 0 12px 24px -8px rgba(236,126,84,.5);
-    position: relative; margin-bottom: 20px;
-  }
-  .maru-icon-md::before {
-    content: '';
-    position: absolute; left: 33%; top: 37%;
-    width: 10px; height: 16px; border-radius: 50%; background: #2a211c;
-    box-shadow: 14px 0 0 #2a211c;
-  }
-  .maru-icon-md::after {
-    content: '';
-    position: absolute; left: 50%; top: 57%; transform: translateX(-50%);
-    width: 18px; height: 18px; border-radius: 50%;
-    border: 3px solid transparent; border-bottom-color: #2a211c;
+    margin-bottom: 20px;
   }
 
   /* NAV */
